@@ -1,8 +1,8 @@
+import styles from './App.module.css'
 import { Header } from "./components/Header"
 import { Post } from "./components/Post"
-import './global.css'
-import styles from './App.module.css'
 import { Sidebar } from "./components/Sidebar"
+import './global.css'
 
 
 const posts =[
@@ -14,9 +14,9 @@ const posts =[
       role:"FullStack Javascript"
     },
     content:[
-      {type:'paragraph', content: "Acabei de subir mais um projeto no meu portifolio"},
-      {type:'paragraph', content: "É um projeto que fiz no NLW Return, evento da rocketseat, segue o link para acesso:"},
-      {type:'link', content:'http://localhost:3000/'}
+      {id:1, type:'paragraph', content: "Acabei de subir mais um projeto no meu portifolio"},
+      {id:2, type:'paragraph', content: "É um projeto que fiz no NLW Return, evento da rocketseat, segue o link para acesso:"},
+      {id:3, type:'link', content:'http://localhost:3000/'}
     ],
     publishedAt: new Date('2022-06-16 20:00:00')
   },
@@ -28,9 +28,9 @@ const posts =[
       role:"Agronoma"
     },
     content:[
-      {type:'paragraph', content: "2 Acabei de subir mais um projeto no meu portifolio"},
-      {type:'paragraph', content: "2 É um projeto que fiz no NLW Return, evento da rocketseat, segue o link para acesso:"},
-      {type:'link', content:'http://localhost:3000/'}
+      {id:4, type:'paragraph', content: "2 Acabei de subir mais um projeto no meu portifolio"},
+      {id:5, type:'paragraph', content: "2 É um projeto que fiz no NLW Return, evento da rocketseat, segue o link para acesso:"},
+      {id:6, type:'link', content:'http://localhost:3000/'}
     ],
     publishedAt: new Date('2022-06-16 08:00:00')
   },
@@ -48,6 +48,7 @@ function App() {
         {posts.map(post =>{
           return(
             <Post 
+              key={post.id}
               author={post.author}
               content={post.content}
               publishedAt={post.publishedAt}
